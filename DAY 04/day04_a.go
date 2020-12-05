@@ -7,7 +7,7 @@ import(
 	"strings"
 )
 
-func mainn(){
+func main(){
 
 //	--- STANDARD FILE OPENING ---
 	input, err := os.Open("input.txt") 
