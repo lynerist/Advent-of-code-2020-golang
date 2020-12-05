@@ -1,0 +1,26 @@
+name: Go
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Build and run
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: ^1.13
+
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v2
+
+    - name: Build and run
+      run: for d in $(find "./" -maxdepth 2 -mindepth 1 -type d | sort); do printf "\n┌-------------┐\n| $d |\n└-------------┘\n"; cd "$d"; time go run main.go || exit 1; cd ../../; done;
+
+
