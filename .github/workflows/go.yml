@@ -21,6 +21,6 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build and run
-      run: for d in $(find Day*/ -maxdepth 1 -type d | sort); do printf "\n┌-------------┐\n| $d     |\n└-------------┘\n"; cd "$d"; for f in $(find day* | sort); do printf "$f =  "; time go run $f|| exit 1; printf "\n"; done; cd ../; done;
+      run: for d in $(find Day*/ -maxdepth 1 -type d | sort); do printf "\n┌-------------┐\n| $d     |\n└-------------┘\n"; cd "$d"; for f in $(find day* | sort); do printf "$f =  "; time go run $f|| exit 1; printf "\n"; sleep 1s; done; cd ../; done;
 
 
