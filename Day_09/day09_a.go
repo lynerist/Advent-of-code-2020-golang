@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func mainn() {
+func main() {
 	//	--- STANDARD FILE OPENING ---
 	input, err := os.Open("input.txt")
 	if err != nil {
@@ -38,7 +38,7 @@ func mainn() {
 	}
 }
 
-func inPrevSumm(prev []int, number int)bool{
+func inPrevSum(prev []int, number int)bool{
 	for i, n1 := range prev{
 		for _, n2 := range prev[i+1:]{
 			if n1 + n2 == number{
